@@ -83,12 +83,13 @@ function openModal(event) {
 `);
 
   instance.show();
+  window.addEventListener("keydown", escCloseModal);
 }
 
-window.addEventListener("keydown", escCloseModal);
-
 function escCloseModal(event) {
+  console.log(event);
   if (event.code === "Escape") {
     instance.close();
+    window.removeEventListener("keydown", escCloseModal);
   }
 }
